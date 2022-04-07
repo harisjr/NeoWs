@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Dashboard from './dashboard/Dashboard';
+import Stars from './Stars/Stars';
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+import Asteroid from './asteroid/Asteroid';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Stars/>
+      <Routes>
+        <Route path="/" element={<Dashboard/>}/>
+        <Route path="/details" element={<Asteroid/>}/>
+      </Routes>
+
     </div>
   );
 }
