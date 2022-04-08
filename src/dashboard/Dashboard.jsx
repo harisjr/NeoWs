@@ -87,7 +87,7 @@ function Dashboard() {
            {
                data.near_earth_objects[item].slice(0, 10).map((val) => (
                    <div className="asteroid">
-                       <Link to={{ pathname: '/details', search: `?url=${val.links.self}`}}>
+                       <Link to={{ pathname: '/details', search: `?id=${val.neo_reference_id}`}}>
                        {val.name}    
                        </Link>
                    </div>

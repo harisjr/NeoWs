@@ -2,19 +2,20 @@ import React, {useState, useEffect} from 'react';
 import '../asteroid/Asteroid.scss';
 import {useSearchParams, useNavigate} from "react-router-dom";
 import axios from 'axios';
+const API_KEY = "25CNI9xziO3sLFAn4S2f155k5iMc1HjnjoxdSxn5";
 
 
 function Asteroid() {
     const [searchParams] = useSearchParams();
     const [data, setData] = useState([]);
-    const url = searchParams.get("url")
+    const id = searchParams.get("id")
     const navigate = useNavigate();
     if(data.length == 0){
         navigate('/')
     }
 
     async function fetchMyAPI() {
-        const fetch =  await axios.get(url);
+        const fetch =  await axios.get(`https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=${API_KEY}`);
         setData(fetch.data);
     } 
     function back(){
